@@ -5,11 +5,7 @@
 ---
 
 ## 🎯 Problem Statement
-
-Processing invoices manually is slow, error-prone, and difficult to scale.
-
-This project demonstrates how to build an **autonomous AI agent** capable of:
-
+Processing invoices manually is slow, error-prone, and difficult to scale. This project demonstrates how to build an **autonomous AI agent** capable of:
 * Extracting structured data from complex PDF invoices
 * Understanding both **text and layout (vision)**
 * Making **business decisions automatically**
@@ -17,78 +13,45 @@ This project demonstrates how to build an **autonomous AI agent** capable of:
 
 ---
 
-## 📖 Project Journey (From 1 to 5)
-
-This project is structured into 5 progressive stages, each adding a new layer of intelligence:
-
-### 1️⃣ Document Representation
-
-Convert complex PDFs into structured Markdown and high-quality images using **IBM Docling**.
-
-### 2️⃣ Hybrid Extraction
-
-Use a dual-engine strategy:
-
-* ⚡ **Groq (Llama 3.1)** → Fast text extraction
-* 👁️ **Gemini 1.5 Flash** → Accurate visual understanding
-
-### 3️⃣ Structured Outputs
-
-Enforce strict schemas using **Pydantic** to transform LLM outputs into validated Python objects.
-
-### 4️⃣ Conditional Logic
-
-Build a stateful workflow using **LangGraph** to route invoices:
-
-* High-value → Manual review
-* Low-value → Automated processing
-
-### 5️⃣ Agentic Tool Use
-
-Extend the system with a **SQLite database**:
-
-* Query customer tiers
-* Detect VIP clients
-* Apply priority business rules
-
----
-
 ## 🏗️ System Architecture
+The system operates as a **stateful Directed Acyclic Graph (DAG)** orchestrated by LangGraph.
 
-The system operates as a **stateful DAG (Directed Acyclic Graph)**:
+![System Architecture](./screenshots/System Architecture.png)
 
-```
-PDF → Extract (Groq + Gemini) → Decision → DB Agent → Final Action
-```
-
-### Flow:
-
+### The Flow:
 1. **Input:** PDF Invoice
-2. **Extract Node:** Multi-modal data extraction
+2. **Extract Node:** Multi-modal data extraction (Groq + Gemini)
 3. **Decision Node:** Conditional logic (amount threshold)
 4. **Agent Node:** Database query (customer tier)
 5. **Output:** Automated / Manual / VIP Processing
 
-📌 *(You can add an architecture diagram here for better visualization)*
+---
+
+## 📖 Project Journey (From 1 to 5)
+
+### 1️⃣ Document Representation
+Convert complex PDFs into structured Markdown and high-quality images using **IBM Docling**.
+![Document Representation](./screenshots/Document Representation.png)
+
+### 2️⃣ Hybrid Extraction
+Use a dual-engine strategy: **Groq (Llama 3.1)** for fast text and **Gemini 1.5 Flash** for visual understanding.
+
+### 3️⃣ Structured Outputs
+Enforce strict schemas using **Pydantic** to transform LLM outputs into validated Python objects.
+![Structured Result](./screenshots/result.png)
+
+### 4️⃣ Conditional Logic & 5️⃣ Agentic Tool Use
+Build a stateful workflow that queries a **SQLite database** to detect VIP clients and apply business rules.
 
 ---
 
-## 📸 Example Output
-
-```json
-{
-  "invoice_number": "INV-2024-001",
-  "balance_due": 7200,
-  "invoice_date": "2024-02-15",
-  "high_value": true,
-  "action": "Manual Review"
-}
-```
+## 📸 Final Decision Output
+Here is a trace of the agent's final decision after checking the database and invoice value:
+![Final Decision](./screenshots/Final Decision.png)
 
 ---
 
 ## 🛠️ Tech Stack
-
 * **Orchestration:** LangGraph
 * **Document Parsing:** Docling (IBM)
 * **LLMs:** Groq (Llama 3.1 8B / 70B)
@@ -101,8 +64,8 @@ PDF → Extract (Groq + Gemini) → Decision → DB Agent → Final Action
 ## 🚀 Installation & Setup
 
 ### 1. Clone the repository
-
-git clone https://github.com/HajarBoutayeb/autonomous-invoice-agent.git
+```bash
+git clone [https://github.com/HajarBoutayeb/autonomous-invoice-agent.git](https://github.com/HajarBoutayeb/autonomous-invoice-agent.git)
 cd autonomous-invoice-agent
 
 ### 2. Install dependencies
