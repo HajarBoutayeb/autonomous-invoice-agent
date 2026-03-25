@@ -16,7 +16,7 @@ Processing invoices manually is slow, error-prone, and difficult to scale. This 
 ## 🏗️ System Architecture
 The system operates as a **stateful Directed Acyclic Graph (DAG)** orchestrated by LangGraph.
 
-![System Architecture](./screenshots/System Architecture.png)
+![System Architecture](./screenshots/arch.png)
 
 ### The Flow:
 1. **Input:** PDF Invoice
@@ -31,7 +31,7 @@ The system operates as a **stateful Directed Acyclic Graph (DAG)** orchestrated 
 
 ### 1️⃣ Document Representation
 Convert complex PDFs into structured Markdown and high-quality images using **IBM Docling**.
-![Document Representation](./screenshots/Document Representation.png)
+![Document Representation](./screenshots/doc_rep.png)
 
 ### 2️⃣ Hybrid Extraction
 Use a dual-engine strategy: **Groq (Llama 3.1)** for fast text and **Gemini 1.5 Flash** for visual understanding.
@@ -47,7 +47,7 @@ Build a stateful workflow that queries a **SQLite database** to detect VIP clien
 
 ## 📸 Final Decision Output
 Here is a trace of the agent's final decision after checking the database and invoice value:
-![Final Decision](./screenshots/Final Decision.png)
+![Final Decision](./screenshots/decision.png)
 
 ---
 
