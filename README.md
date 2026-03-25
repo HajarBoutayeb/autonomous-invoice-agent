@@ -38,7 +38,6 @@ Use a dual-engine strategy: **Groq (Llama 3.1)** for fast text and **Gemini 1.5 
 
 ### 3️⃣ Structured Outputs
 Enforce strict schemas using **Pydantic** to transform LLM outputs into validated Python objects.
-![Structured Result](./screenshots/result.png)
 
 ### 4️⃣ Conditional Logic & 5️⃣ Agentic Tool Use
 Build a stateful workflow that queries a **SQLite database** to detect VIP clients and apply business rules.
