@@ -102,10 +102,8 @@ PDF → Extract (Groq + Gemini) → Decision → DB Agent → Final Action
 
 ### 1. Clone the repository
 
-```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-```
+git clone https://github.com/HajarBoutayeb/autonomous-invoice-agent.git
+cd autonomous-invoice-agent
 
 ### 2. Install dependencies
 
@@ -121,14 +119,6 @@ import os
 os.environ["GROQ_API_KEY"] = "your_key"
 os.environ["GOOGLE_API_KEY"] = "your_key"
 ```
-
----
-
-## 🎥 Demo
-
-👉 *(Add a GIF or short demo video here — highly recommended)*
-
----
 
 ## 📊 Key Results
 
